@@ -10,9 +10,9 @@ let capaFilmes = [
 ];
 
 let videos = [
-  "https://www.youtube.com/embed/3hng-hmSv2Y",
-  "https://www.youtube.com/embed/D6Ff9Isvp5Y",
-  "https://www.youtube.com/embed/3hng-hmSv2Y",
+  "https://www.youtube.com/embed/Ro0yIrOKgbM",
+  "https://www.youtube.com/embed/dV6p83HRk4o",
+  "https://www.youtube.com/embed/iSiqmV13Ffk",
 ];
 
 function filmeCapa() {
@@ -39,14 +39,8 @@ function createiFrame(video) {
   console.log(video);
   iframe = document.getElementsByTagName("iframe")[0];
   iframe.setAttribute("src", video);
+  iframe.setAttribute("id", "frame");
 }
 
-// function clique(container) {
-//   console.log("fuiCLICADO");
-//   let iFrame = document.createElement("iframe");
 
-//   if (!container.children[1]) {
-//     container.appendChild(iFrame);
-//   }
-// }
 filmeCapa();
