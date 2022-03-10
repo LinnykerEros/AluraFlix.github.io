@@ -43,9 +43,7 @@ body > img {
 img {
   max-height: 250px;
 }
-/* #res {
-  display: flex;
-} */
+
 #res img {
   margin-left: 20px;
   padding: 10px;
@@ -54,8 +52,9 @@ img {
   width: 250px;
 }
 
-/* .itens {
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-} */
+
+#frame {
+  height: 400px;
+  width: 500px;
+}
+
