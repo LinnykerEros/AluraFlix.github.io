@@ -15,21 +15,27 @@ let videos = [
   "https://www.youtube.com/embed/iSiqmV13Ffk",
 ];
 
+//COLOCO A CAPA NA TELA PASSANDO A FUNÇÃO DO FRAME NO CLICK
 function filmeCapa() {
-  for (let i = 0; i < filme.length; i++) {
+  res.innerHTML = "";
+  for (let i = 0; i < capaFilmes.length; i++) {
     let video = videos[i];
-    let foto = document.createElement("img");
-    foto.setAttribute("src", `${capaFilmes[i]}`);
+    let foto = document.createElement("img"); //criando um elemento IMG
+    foto.setAttribute("src", `${capaFilmes[i]}`); //atribuindo SRC em IMG passando o vetor
     foto.addEventListener("click", function () {
+      //adicionando um evento click e passando uma função criando o vídeo
       createiFrame(video);
     });
-    res.appendChild(foto);
+    res.appendChild(foto); // adicionando a tag IMG na DIV
   }
 }
+
+//CRIANDO O FRAMe
 function createiFrame(video) {
   let iframe;
   console.log("FUICLICADO");
   if (!caixa) {
+    // verificando variável global, para adicionar o video apenas em uma div
     caixa = document.createElement("div");
     caixa.setAttribute("id", "video");
     container.appendChild(caixa);
@@ -41,6 +47,31 @@ function createiFrame(video) {
   iframe.setAttribute("src", video);
   iframe.setAttribute("id", "frame");
 }
-
-
+//CHAMO A FUNÇÃO DAS IMAGENS ANTES DE ADICIONAR
 filmeCapa();
+//ADICIONANDO NOVAS CAPAS E VIDEOS
+function adicionar() {
+  let capa = document.getElementById("capa");
+  let linkVideo = document.getElementById("linkVideo");
+
+  //VERIFICANDO OS INPUTS
+  if (capa.value == "" && linkVideo.value == "") {
+    alert("[ERROR] Insira a URL");
+  } else if (capa.value == "" && !linkVideo.value == "") {
+    alert("[ERROR] Insira a URL");
+  } else if (!capa.value == "" && linkVideo.value == "") {
+    alert("[ERROR] Insira a URL");
+  } else if (
+    capa.value.endsWith(".jpg") == false &&
+    capa.value.endsWith(".png") == false
+  ) {
+    alert("[ERROR] Insira o endereço da imagem, CORRETO!");
+  } else if (capaFilmes.includes(capa.value)) {
+    alert("URL JA ADICIONADA");
+  } else {
+    //ADICIONANDO NO VETOR "CAPAFILMES" e "VIDEOS"
+    capaFilmes.push(capa.value);
+    videos.push(linkVideo.value);
+  }
+  filmeCapa();
+}
