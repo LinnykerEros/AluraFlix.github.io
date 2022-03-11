@@ -47,7 +47,7 @@ img {
 #res img {
   margin-left: 20px;
   padding: 10px;
-
+  cursor: pointer;
   height: 250px;
   width: 250px;
 }
